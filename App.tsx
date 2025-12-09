@@ -12,7 +12,7 @@ import { Flashcard } from "./components/Flashcard"
 import { DeckEditor } from "./components/DeckEditor"
 import { VocabCard } from "./types"
 import { SAMPLE_DATA } from "./constants"
-import { SpeedInsights } from "@vercel/speed-insights/next"
+import { SpeedInsights } from "@vercel/speed-insights/react"
 
 const App: React.FC = () => {
   const [deck, setDeck] = useState<VocabCard[]>([])
