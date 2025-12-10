@@ -400,4 +400,4 @@ export const SAMPLE_DATA: VocabCard[] = [
     meaning: "tên một thành phố (giả định)",
     audioUrl: "",
   },
-]
+] as const
