@@ -95,7 +95,7 @@ def crawl_vocabulary(url):
 # ...existing code...
 
 # Sử dụng
-url = 'https://www.vnjpclub.com/minna-no-nihongo/bai-14-tu-vung.html'
+url = 'https://www.vnjpclub.com/minna-no-nihongo/bai-15-tu-vung.html'
 df = crawl_vocabulary(url)
 
 # Xuất ra CSV
