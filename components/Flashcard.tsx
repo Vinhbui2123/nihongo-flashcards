@@ -75,7 +75,7 @@ export const Flashcard: React.FC<FlashcardProps> = ({
 
   return (
     <div
-      className="w-full max-w-md h-96 cursor-pointer group perspective-1000 mx-auto"
+      className="w-full max-w-md h-[28rem] sm:h-96 cursor-pointer group perspective-1000 mx-auto"
       onClick={onFlip}
       onKeyDown={handleKeyDown}
       role="button"
@@ -83,29 +83,28 @@ export const Flashcard: React.FC<FlashcardProps> = ({
       aria-label={isFlipped ? "Nhấn để xem câu hỏi" : "Nhấn để xem đáp án"}
     >
       <div
-        className={`relative w-full h-full duration-500 transform-style-3d shadow-xl rounded-2xl transition-transform ${
-          isFlipped ? "rotate-y-180" : ""
-        }`}
+        className={`relative w-full h-full duration-500 transform-style-3d transition-transform ${isFlipped ? "rotate-y-180" : ""
+          }`}
       >
         {/* Front Side (Question) */}
-        <div className="absolute w-full h-full bg-white rounded-2xl p-6 flex flex-col items-center justify-center backface-hidden border border-slate-200">
-          <div className="text-slate-400 text-sm font-semibold uppercase tracking-wider mb-8">
+        <div className="absolute w-full h-full bg-white/70 backdrop-blur-md rounded-2xl p-6 flex flex-col items-center justify-center backface-hidden shadow-2xl border border-white/50 ring-1 ring-white/60">
+          <div className="text-indigo-400 text-xs font-bold uppercase tracking-widest mb-8">
             Tiếng Nhật
           </div>
 
           <div className="flex-1 flex flex-col items-center justify-center space-y-4">
             {/* Kanji Display */}
-            <h2 className="text-6xl md:text-7xl font-jp font-bold text-slate-800 text-center">
+            <h2 className="text-6xl md:text-7xl font-jp font-bold text-slate-800 text-center drop-shadow-sm">
               {card.kanji}
             </h2>
             {/* Kana */}
-            <p className="text-2xl font-jp text-slate-600">{card.kana}</p>
+            <p className="text-2xl font-jp text-slate-600 font-medium">{card.kana}</p>
           </div>
 
           <div className="mt-auto flex gap-4 pt-4">
             <button
               onClick={handleAudioClick}
-              className="p-3 rounded-full bg-indigo-50 text-indigo-600 hover:bg-indigo-100 transition-colors z-10"
+              className="p-3 rounded-full bg-indigo-50/80 text-indigo-600 hover:bg-indigo-100 transition-colors z-10 shadow-sm border border-indigo-100"
               title="Phát âm thanh"
               aria-label="Phát âm thanh tiếng Nhật"
             >
@@ -119,8 +118,8 @@ export const Flashcard: React.FC<FlashcardProps> = ({
         </div>
 
         {/* Back Side (Answer) */}
-        <div className="absolute w-full h-full bg-indigo-600 text-white rounded-2xl p-6 flex flex-col items-center justify-center backface-hidden rotate-y-180 border border-indigo-500">
-          <div className="text-indigo-200 text-sm font-semibold uppercase tracking-wider mb-8">
+        <div className="absolute w-full h-full bg-gradient-to-br from-indigo-600/90 to-purple-600/90 backdrop-blur-md text-white rounded-2xl p-6 flex flex-col items-center justify-center backface-hidden rotate-y-180 shadow-2xl border border-white/20">
+          <div className="text-indigo-100 text-xs font-bold uppercase tracking-widest mb-8">
             Đáp án
           </div>
 
@@ -128,23 +127,23 @@ export const Flashcard: React.FC<FlashcardProps> = ({
             {/* Sino-Vietnamese */}
             {card.sinoVietnamese && (
               <div>
-                <span className="text-indigo-300 text-xs font-bold uppercase tracking-widest block mb-1">
+                <span className="text-indigo-200 text-[10px] font-bold uppercase tracking-[0.2em] block mb-1">
                   Âm Hán
                 </span>
-                <p className="text-2xl font-bold uppercase tracking-wide text-indigo-100">
+                <p className="text-2xl font-bold uppercase tracking-wide text-white drop-shadow-md">
                   {card.sinoVietnamese}
                 </p>
               </div>
             )}
 
-            <div className="w-16 h-1 bg-indigo-400/50 rounded-full"></div>
+            <div className="w-16 h-1 bg-white/20 rounded-full backdrop-blur-sm"></div>
 
             {/* Meaning */}
             <div>
-              <span className="text-indigo-300 text-xs font-bold uppercase tracking-widest block mb-1">
+              <span className="text-indigo-200 text-[10px] font-bold uppercase tracking-[0.2em] block mb-1">
                 Nghĩa Tiếng Việt
               </span>
-              <h3 className="text-3xl font-bold leading-tight">
+              <h3 className="text-3xl font-bold leading-tight text-white drop-shadow-md">
                 {card.meaning}
               </h3>
             </div>
@@ -153,7 +152,7 @@ export const Flashcard: React.FC<FlashcardProps> = ({
           <div className="mt-auto flex gap-4 pt-4">
             <button
               onClick={handleAudioClick}
-              className="p-3 rounded-full bg-white/20 text-white hover:bg-white/30 transition-colors z-10"
+              className="p-3 rounded-full bg-white/20 text-white hover:bg-white/30 transition-colors z-10 backdrop-blur-sm border border-white/30"
               title="Phát âm thanh"
               aria-label="Phát âm thanh tiếng Nhật"
             >
